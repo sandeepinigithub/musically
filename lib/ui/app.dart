@@ -72,7 +72,7 @@ class _AppState extends State<App> {
               ),
               title: Text(
                 'Home',
-                style: Style.smallText,
+                style: Style.verySmallText,
               )),
           BottomNavigationBarItem(
               icon: Icon(
@@ -81,7 +81,7 @@ class _AppState extends State<App> {
               ),
               title: Text(
                 'Music',
-                style: Style.smallText,
+                style: Style.verySmallText,
               )),
           BottomNavigationBarItem(
               icon: Icon(
@@ -101,7 +101,7 @@ class _AppState extends State<App> {
               ),
               title: Text(
                 'Search',
-                style: Style.smallText,
+                style: Style.verySmallText,
               )),
           BottomNavigationBarItem(
               icon: Icon(
@@ -110,7 +110,7 @@ class _AppState extends State<App> {
               ),
               title: Text(
                 'Setting',
-                style: Style.smallText,
+                style: Style.verySmallText,
               ))
         ],
         currentIndex: currentIndex.getCurrentTab,

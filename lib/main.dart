@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musically/ui/app.dart';
-import 'package:musically/ui/views/dashboard.dart';
+import 'package:musically/ui/views/home.dart';
 import 'package:provider/provider.dart';
 
 import 'core/TabProvider.dart';
@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => App(),
-          '/dashboard': (context) => Dashboard(),
+          '/home': (context) => Home(),
         },
         initialRoute: '/',
       ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:musically/ui/shared/styles.dart';
 
+import '../../SampleData.dart';
+
 class MusicBox extends StatelessWidget {
   final Size size;
   final String text;
@@ -12,27 +14,34 @@ class MusicBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.all(8.0),
-        child: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          direction: Axis.vertical,
+    return Card(
+      child: Container(
+        width: size.width / 2.8,
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(16.0),
-              child: Container(
-                width: size.width / 2.5,
-                height: size.width / 2.5,
-                color: Colors.black26,
-                child: Image.network(profileImage),
+            SizedBox(
+              width: size.width / 2.8,
+              height: size.width / 2.8,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16.0),
+                child: Image.network(Data.profileImage),
               ),
+            ),
+            SizedBox(
+              height: 4.0,
             ),
             Text(
               text,
-//              style: Style.headingsmall,
-              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: Style.headingSmall(size.width / 4),
             ),
           ],
-        ));
+        ),
+      ),
+      elevation: 0.0,
+    );
   }
 }
