@@ -9,4 +9,6 @@ class Data {
     'Most Played - Punjabi Pop',
     'Personalised - Playlist'
   ];
+  static final String profileImage =
+      "https://short-biography.com/wp-content/uploads/hrithik-roshan/Hrithik-Roshan.jpg";
 }

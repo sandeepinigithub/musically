@@ -12,7 +12,7 @@ class HeadingOne extends StatelessWidget {
       margin: EdgeInsets.only(left: 16.0, right: 16.0),
       child: Text(
         '$title',
-        style: Style.heading,
+//        style: Style.heading,
       ),
     );
   }

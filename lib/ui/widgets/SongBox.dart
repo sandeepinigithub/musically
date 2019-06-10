@@ -29,7 +29,7 @@ class MusicBox extends StatelessWidget {
             ),
             Text(
               text,
-              style: Style.headingsmall,
+//              style: Style.headingsmall,
               textAlign: TextAlign.center,
             ),
           ],

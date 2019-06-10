@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:musically/ui/app.dart';
-import 'package:musically/ui/dashboard.dart';
+import 'package:musically/ui/views/dashboard.dart';
+import 'package:provider/provider.dart';
+
+import 'core/TabProvider.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,14 +15,22 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Musically',
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => App(),
-        '/dashboard': (context) => Dashboard(),
-      },
-      initialRoute: '/',
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          builder: (_) => TabProvider(),
+        ),
+        ChangeNotifierProvider(builder: (_) => PlayProvider()),
+      ],
+      child: MaterialApp(
+        title: 'Musically',
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/': (context) => App(),
+          '/dashboard': (context) => Dashboard(),
+        },
+        initialRoute: '/',
+      ),
     );
   }
 }
