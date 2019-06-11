@@ -4,6 +4,7 @@ import 'package:musically/ui/views/home.dart';
 import 'package:provider/provider.dart';
 
 import 'core/TabProvider.dart';
+import 'core/viewmodel/homeviewmodel.dart';
 
 void main() => runApp(MyApp());
 
