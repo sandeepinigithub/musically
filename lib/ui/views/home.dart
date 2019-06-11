@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musically/ui/widgets/SongBox.dart';
-import 'package:musically/ui/widgets/musicList.dart';
+import 'package:musically/ui/widgets/music_list.dart';
 
 import '../../SampleData.dart';
 

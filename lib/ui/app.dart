@@ -4,7 +4,7 @@ import 'package:musically/ui/shared/styles.dart';
 import 'package:musically/ui/views/Music.dart';
 import 'package:musically/ui/views/Search.dart';
 import 'package:musically/ui/views/Settings.dart';
-import 'package:musically/ui/views/home.dart';
+import 'package:musically/ui/views/Home.dart';
 import 'package:provider/provider.dart';
 import '../SampleData.dart';
 
@@ -21,6 +21,7 @@ class _AppState extends State<App> {
     final currentIndex = Provider.of<TabProvider>(context);
     final isPlaying = Provider.of<PlayProvider>(context);
     final width = MediaQuery.of(context).size.width;
+    final Size size = MediaQuery.of(context).size;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: _children[currentIndex.getCurrentTab > 1
@@ -35,17 +36,22 @@ class _AppState extends State<App> {
           children: <Widget>[
             Text(
               'Musically',
-              style: Style.heading(width),
+              style: Style.medium_bold_gothic(width),
             ),
-            ClipOval(
-                child: CircleAvatar(
-              maxRadius: width / 18,
-              minRadius: width / 18,
-              child: Image.network(
-                Data.profileImage,
-                fit: BoxFit.cover,
-              ),
-            )),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed('/setting');
+              },
+              child: ClipOval(
+                  child: CircleAvatar(
+                maxRadius: width / 18,
+                minRadius: width / 18,
+                child: Image.network(
+                  Data.profileImage,
+                  fit: BoxFit.cover,
+                ),
+              )),
+            ),
           ],
         ),
       ),
@@ -72,7 +78,7 @@ class _AppState extends State<App> {
               ),
               title: Text(
                 'Home',
-                style: Style.verySmallText,
+                style: Style.very_small_bold_gothic(width),
               )),
           BottomNavigationBarItem(
               icon: Icon(
@@ -81,14 +87,14 @@ class _AppState extends State<App> {
               ),
               title: Text(
                 'Music',
-                style: Style.verySmallText,
+                style: Style.very_small_bold_gothic(width),
               )),
           BottomNavigationBarItem(
               icon: Icon(
                 isPlaying.play == true
                     ? Icons.play_circle_filled
                     : Icons.pause_circle_filled,
-                size: width / 7,
+                size: width / 8,
                 color: Style.red,
               ),
               title: Container(
@@ -101,7 +107,7 @@ class _AppState extends State<App> {
               ),
               title: Text(
                 'Search',
-                style: Style.verySmallText,
+                style: Style.very_small_bold_gothic(width),
               )),
           BottomNavigationBarItem(
               icon: Icon(
@@ -110,7 +116,7 @@ class _AppState extends State<App> {
               ),
               title: Text(
                 'Setting',
-                style: Style.verySmallText,
+                style: Style.very_small_bold_gothic(width),
               ))
         ],
         currentIndex: currentIndex.getCurrentTab,

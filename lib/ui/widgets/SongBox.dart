@@ -36,7 +36,7 @@ class MusicBox extends StatelessWidget {
               text,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: Style.headingSmall(size.width / 4),
+              style: Style.small_bold_gothic(size.width),
             ),
           ],
         ),

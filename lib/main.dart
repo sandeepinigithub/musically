@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:musically/routers.dart';
 import 'package:musically/ui/app.dart';
-import 'package:musically/ui/views/home.dart';
+import 'package:musically/ui/views/Music.dart';
+import 'package:musically/ui/views/Search.dart';
+import 'package:musically/ui/views/Settings.dart';
+import 'package:musically/ui/views/Home.dart';
 import 'package:provider/provider.dart';
 
 import 'core/TabProvider.dart';
@@ -26,11 +30,8 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         title: 'Musically',
         debugShowCheckedModeBanner: false,
-        routes: {
-          '/': (context) => App(),
-          '/home': (context) => Home(),
-        },
         initialRoute: '/',
+        onGenerateRoute: Router.generateRoute,
       ),
     );
   }

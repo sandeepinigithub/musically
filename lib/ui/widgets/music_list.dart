@@ -22,7 +22,7 @@ class MusicList extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               heading,
-              style: Style.heading(size.width),
+              style: Style.medium_bold_gothic(size.width),
             ),
           ),
           Container(
