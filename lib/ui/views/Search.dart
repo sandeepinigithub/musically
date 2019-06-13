@@ -8,6 +8,10 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Text('To be implemented soon.'),
+      ),
+    );
   }
 }

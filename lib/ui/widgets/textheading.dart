@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:musically/ui/shared/styles.dart';
+import 'package:musically/ui/shared/text_styles.dart';
 
 class HeadingOne extends StatelessWidget {
   String title;

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:musically/ui/shared/styles.dart';
+import 'package:musically/ui/shared/text_styles.dart';
 
 import '../../SampleData.dart';
 
 class MusicBox extends StatelessWidget {
   final Size size;
   final String text;
+  final String image;
 
-  MusicBox({@required this.size, @required this.text});
-
-  String profileImage =
-      "https://short-biography.com/wp-content/uploads/hrithik-roshan/Hrithik-Roshan.jpg";
+  MusicBox({@required this.size, @required this.text, this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +20,15 @@ class MusicBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(
-              width: size.width / 2.8,
-              height: size.width / 2.8,
+              width: size.width / 2.9,
+              height: size.width / 2.9,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16.0),
-                child: Image.network(Data.profileImage),
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.centerLeft,
+                ),
               ),
             ),
             SizedBox(
@@ -36,7 +38,6 @@ class MusicBox extends StatelessWidget {
               text,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: Style.small_bold_gothic(size.width),
             ),
           ],
         ),

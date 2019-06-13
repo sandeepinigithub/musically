@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:musically/routers.dart';
 import 'package:musically/ui/app.dart';
+import 'package:musically/ui/locator.dart';
 import 'package:musically/ui/views/Music.dart';
 import 'package:musically/ui/views/Search.dart';
 import 'package:musically/ui/views/Settings.dart';
 import 'package:musically/ui/views/Home.dart';
 import 'package:provider/provider.dart';
 
-import 'core/TabProvider.dart';
+import 'package:musically/core/viewmodel/TabProvider.dart';
 import 'core/viewmodel/homeviewmodel.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  setLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -25,7 +29,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           builder: (_) => TabProvider(),
         ),
-        ChangeNotifierProvider(builder: (_) => PlayProvider()),
+        ChangeNotifierProvider(builder: (_) => PlayerProvider()),
       ],
       child: MaterialApp(
         title: 'Musically',

@@ -19,6 +19,17 @@ class Data {
   static final List<String> heading_music = [
     'Bollywood Romantic',
     'Punjabi Pop',
-    'English International'
   ];
+
+  static final List<String> imageSet = [
+    'assets/image1.png',
+    'assets/image2.png',
+    'assets/image3.png'
+  ];
+  static final List<String> imageSet2 = [
+    'assets/image4.png',
+    'assets/image6.jpg',
+    'assets/image7.jpg',
+  ];
+  static final List<List<String>> image = [imageSet, imageSet2];
 }

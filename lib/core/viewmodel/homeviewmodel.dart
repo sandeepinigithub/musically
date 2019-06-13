@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:musically/core/enum/view_state.dart';
-
 import '../../SampleData.dart';
 import 'base_model.dart';
 
