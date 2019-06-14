@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 import 'package:musically/core/viewmodel/TabProvider.dart';
 import 'core/viewmodel/homeviewmodel.dart';
+import 'core/viewmodel/music_model.dart';
 
 void main() {
   setLocator();

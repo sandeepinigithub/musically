@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flute_music_player/flute_music_player.dart';
 import 'package:musically/core/viewmodel/TabProvider.dart';
-import 'package:musically/core/enum/player_state.dart';
 import 'package:musically/core/enum/view_state.dart';
 import 'package:musically/core/viewmodel/music_model.dart';
-import 'package:provider/provider.dart';
-import 'package:get_it/get_it.dart';
+import 'package:musically/ui/widgets/base_view.dart';
 
 import '../locator.dart';
 
@@ -15,50 +12,43 @@ class Music extends StatefulWidget {
 }
 
 class _MusicState extends State<Music> {
-  MusicModel model;
+  MusicModel model = locator<MusicModel>();
   final isPlaying = locator<PlayerProvider>();
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    model = locator<MusicModel>();
     model.initPlayer();
-  }
-
-  void playLocal(String url) async {
-    stop();
-    model.playerState == PlayerState.stopped ? play(url) : stop();
-  }
-
-  void play(String url) async {
-    await model.audioPlayer.play(url, isLocal: true);
-    model.playerState = PlayerState.playing;
-//    isPlaying.play = true;
-  }
-
-  void stop() async {
-    await model.audioPlayer.stop();
-    model.playerState = PlayerState.stopped;
-//    isPlaying.play = false;
   }
 
   @override
   Widget build(BuildContext context) {
-    return (model.state == ViewState.Busy || model.songs == null)
-        ? Center(
-            child: CircularProgressIndicator(),
-          )
-        : ListView.builder(
-            itemCount: model.songs.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
+    return BaseView<PlayerProvider>(
+      builder: (context, player, _) => BaseView<MusicModel>(
+            builder: (context, musicmodel, _) =>
+                (musicmodel.state == ViewState.Busy || musicmodel.songs == null)
+                    ? Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : (musicmodel.songs.length == 0 ||
+                            musicmodel.songs.length == null)
+                        ? Center(
+                            child: Text('Oops! No song found.'),
+                          )
+                        : ListView.builder(
+                            itemCount: musicmodel.songs.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                  leading: CircleAvatar(
 //                  child: Image.network(model.songs[index].albumArt),
-                    ),
-                title: Text(model.songs[index].title),
-                onTap: () => playLocal(model.songs[index].uri),
-              );
-            });
+                                      ),
+                                  title: Text(musicmodel.songs[index].title),
+                                  onTap: () {
+                                    musicmodel.play(
+                                        musicmodel.songs[index].uri, index);
+                                  });
+                            }),
+          ),
+    );
   }
 }
